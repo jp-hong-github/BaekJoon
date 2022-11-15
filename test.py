@@ -1,5 +1,12 @@
-import sys
+s = [1, 2]
+s.reverse()
+print(s)
 
-sys.stdout.write("hello python!")
-sys.stdout.write("hello python!")
 
+s = [1]
+s.reverse()
+print(s)
+
+s = []
+s.reverse()
+print(s)
