@@ -1,34 +1,33 @@
 {
-    "python.formatting.provider": "black",
-    "editor.formatOnSave": true,
-    "cSpell.ignorePaths":["README.md","markdown/"],
-    "cSpell.words": [
-        "deque",
-        "heapify",
-        "kruskal",
-        "LISTMAP",
-        "popleft",
-        "setrecursionlimit",
-        "Warshall"
-    ],
-     "markdownlint.config": {
-        "MD003":false,
-        "MD013":false,
-        "MD007":false
+  "python.formatting.provider": "black",
+  "editor.formatOnSave": true,
+  "cSpell.ignorePaths": ["README.md", "markdown/"],
+  "cSpell.words": [
+    "deque",
+    "heapdict",
+    "heapify",
+    "kruskal",
+    "LISTMAP",
+    "popleft",
+    "setrecursionlimit",
+    "Warshall"
+  ],
+  "markdownlint.config": {
+    "MD003": false,
+    "MD013": false,
+    "MD007": false
+  },
+  "[markdown]": {
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
     },
-    "[markdown]": { 
-        "editor.unicodeHighlight.ambiguousCharacters": false,
-        "editor.unicodeHighlight.invisibleCharacters": false,
-        "editor.wordWrap": "on",
-        "editor.quickSuggestions": {
-            "comments": "off",
-            "strings": "off",
-            "other": "off"
-        },
-        "editor.insertSpaces": true,
-        "editor.detectIndentation": false
-    },
-    "python.formatting.blackArgs": [
-        "--line-length","150"
-    ]
-}   
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+  },
+  "python.formatting.blackArgs": ["--line-length", "150"]
+}
