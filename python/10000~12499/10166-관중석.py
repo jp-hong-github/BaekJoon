@@ -1,19 +1,21 @@
 import sys
-import math
+from math import gcd
 
 input = sys.stdin.readline
 
-d1, d2 = map(int, input().split())
-seat_list = [[0 for _ in range(2001)] for _ in range(2001)]
-result = 0
 
-for d in range(d1, d2 + 1):
-    for i in range(1, d + 1):
-        gcd = math.gcd(i, d)
-        d_g = d // gcd
-        i_g = i // gcd
-        if seat_list[i_g][d_g] == 0:
-            result += 1
-            seat_list[i_g][d_g] = 1
-            
-print(result)
+def solve():
+    d1, d2 = map(int, input().split())
+    arr = [[0] * d2 for _ in range(d2)]
+    cnt = 0
+    for r in range(d1, d2 + 1):
+        for i in range(1, r + 1):
+            c = gcd(i, r)
+            a, b = i // c, r // c
+            if not arr[a - 1][b - 1]:
+                arr[a - 1][b - 1] = 1
+                cnt += 1
+    print(cnt)
+
+
+solve()
