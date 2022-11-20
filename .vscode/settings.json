@@ -3,6 +3,7 @@
   "editor.formatOnSave": true,
   "cSpell.ignorePaths": ["README.md", "markdown/"],
   "cSpell.words": [
+    "appendleft",
     "deque",
     "heapdict",
     "heapify",
