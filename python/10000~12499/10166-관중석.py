@@ -23,10 +23,8 @@ import math
 
 input = sys.stdin.readline
 
-
 def solution():
     d1, d2 = map(int, input().split())
-    # seat_list = [[0 for _ in range(d2)] for _ in range(d2)]
     seat_list = [[0] * d2 for _ in range(d2)]
     result = 0
 
