@@ -5,7 +5,7 @@ result_list = []
 while True:
     string = list(map(str, input().rstrip()))
     # print(string)
-    if '#' in string:
+    if "#" in string:
         break
     else:
         result = 0
