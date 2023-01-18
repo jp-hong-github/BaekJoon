@@ -1,11 +1,6 @@
 import sys
 from collections import defaultdict
 
-# import decimal
-
-# context = decimal.getcontext()
-# context.rounding = decimal.ROUND_HALF_UP
-
 input = sys.stdin.readline
 
 trees = defaultdict(int)
