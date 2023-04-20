@@ -1,5 +1,5 @@
 {
-  "python.formatting.provider": "black",
+  "python.formatting.provider": "none",
   "editor.formatOnSave": true,
   "cSpell.ignorePaths": ["README.md", "markdown/"],
   "cSpell.words": [
@@ -31,5 +31,8 @@
     "editor.insertSpaces": true,
     "editor.detectIndentation": false
   },
-  "python.formatting.blackArgs": ["--line-length", "150"]
+  "python.formatting.blackArgs": ["--line-length", "150"],
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  }
 }
