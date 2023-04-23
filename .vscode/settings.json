@@ -1,38 +1,4 @@
 {
-  "python.formatting.provider": "none",
-  "editor.formatOnSave": true,
-  "cSpell.ignorePaths": ["README.md", "markdown/"],
-  "cSpell.words": [
-    "appendleft",
-    "deque",
-    "extendleft",
-    "heapdict",
-    "heapify",
-    "kruskal",
-    "LISTMAP",
-    "popleft",
-    "setrecursionlimit",
-    "Warshall"
-  ],
-  "markdownlint.config": {
-    "MD003": false,
-    "MD013": false,
-    "MD007": false
-  },
-  "[markdown]": {
-    "editor.unicodeHighlight.ambiguousCharacters": false,
-    "editor.unicodeHighlight.invisibleCharacters": false,
-    "editor.wordWrap": "on",
-    "editor.quickSuggestions": {
-      "comments": "off",
-      "strings": "off",
-      "other": "off"
-    },
-    "editor.insertSpaces": true,
-    "editor.detectIndentation": false
-  },
   "python.formatting.blackArgs": ["--line-length", "150"],
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
-  }
+  "editor.tabSize": 4
 }
