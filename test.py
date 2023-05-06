@@ -10,6 +10,7 @@ graph = []
 for _ in range(n):
     graph.append([int(i) for i in input().rstrip()])
 
+
 # 각 연결된 영역이 연결된 칸의 개수
 area_count_dict = defaultdict(int)
 
