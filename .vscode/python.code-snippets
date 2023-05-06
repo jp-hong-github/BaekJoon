@@ -27,7 +27,7 @@
   },
   "direction": {
     "scope": "python",
-    "prefix": "DIST",
+    "prefix": "direction",
     "body": ["direction = [[-1, 0], [1, 0], [0, -1], [0, 1]]"]
   }
 }
