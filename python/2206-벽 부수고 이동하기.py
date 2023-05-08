@@ -1,31 +1,42 @@
 import sys
+from collections import deque
 
-dx = [1, -1, 0, 0]
-dy = [0, 0, 1, -1]
+input = sys.stdin.readline
 
+n, m = list(map(int, input().split()))
 
-def bfs():
-    q = []
-    q.append([0, 0, 1])
-    visit = [[[0] * 2 for _ in range(m)] for __ in range(n)]
-    visit[0][0][1] = 1
-    while q:
-        x, y, w = q.pop(0)
-        if x == n - 1 and y == m - 1:
-            return visit[x][y][w]
-        for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
-            if 0 <= nx < n and 0 <= ny < m:
-                if graph[nx][ny] == 1 and w == 1:
-                    visit[nx][ny][0] = visit[x][y][1] + 1
-                    q.append([nx, ny, 0])
-                elif graph[nx][ny] == 0 and visit[nx][ny][w] == 0:
-                    visit[nx][ny][w] = visit[x][y][w] + 1
-                    q.append([nx, ny, w])
-    return -1
+graph = []
+for _ in range(n):
+    graph.append(list(map(int, input().rstrip())))
 
+# 첫 번째 원소는 벽을 부수지 않았을 때의 이동 거리
+# 두 번째 원소는 벽을 부수었을 때의 이동 거리
+visited = [[[0, 0] for _ in range(m)] for _ in range(n)]
+visited[0][0][0] = 1
 
-n, m = map(int, sys.stdin.readline().split())
-graph = [list(map(int, sys.stdin.readline().rstrip())) for _ in range(n)]
-print(bfs())
+q = deque([(0, 0, 0)])
+direction = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+
+result = -1
+while q:
+    cRow, cCol, wall_break = q.popleft()
+
+    if cRow == n - 1 and cCol == m - 1:
+        result = visited[cRow][cCol][wall_break]
+        break
+
+    for dRow, dCol in direction:
+        nRow = cRow + dRow
+        nCol = cCol + dCol
+
+        if not (0 <= nRow < n and 0 <= nCol < m):
+            continue
+
+        if graph[nRow][nCol] == 1 and wall_break == 0:
+            q.append((nRow, nCol, 1))
+            visited[nRow][nCol][1] = visited[cRow][cCol][0] + 1
+        elif graph[nRow][nCol] == 0 and visited[nRow][nCol][wall_break] == 0:
+            q.append((nRow, nCol, wall_break))
+            visited[nRow][nCol][wall_break] = visited[cRow][cCol][wall_break] + 1
+
+print(result)

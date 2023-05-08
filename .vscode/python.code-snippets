@@ -29,5 +29,10 @@
     "scope": "python",
     "prefix": "direction",
     "body": ["direction = [[-1, 0], [1, 0], [0, -1], [0, 1]]"]
+  },
+  "next row col": {
+    "scope": "python",
+    "prefix": "nextrowcol",
+    "body": ["for dRow, dCol in direction:", "    nRow = cRow + dRow", "    nCol = cCol + dCol"]
   }
 }
