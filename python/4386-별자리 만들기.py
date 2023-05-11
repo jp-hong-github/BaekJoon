@@ -1,57 +1,60 @@
-import sys
+import heapq
+from decimal import Decimal
 
-input = sys.stdin.readline
 
+def prim(graph, start_vertex, num_of_vertex):
+    # 방문한 정점을 저장하는 집합
+    visited = set()
 
-def cal_dist(star_1, star_2):
-    return ((star_1[0] - star_2[0]) ** 2 + (star_1[1] - star_2[1]) ** 2) ** (0.5)
+    # 최소 스패닝 트리의 간선들을 저장하는 리스트
+    minimum_spanning_tree = []
+
+    # 시작 정점을 방문한 것으로 표시
+    visited.add(start_vertex)
+
+    # 시작 정점과 연결된 간선들을 우선순위 큐에 추가
+    edges = []
+    for neighbor, weight in graph[start_vertex]:
+        heapq.heappush(edges, (weight, start_vertex, neighbor))
+
+    # 모든 정점을 방문할 때까지 반복
+    while len(visited) < num_of_vertex:
+        # 가장 가중치가 작은 간선을 선택
+        weight, u, v = heapq.heappop(edges)
+
+        # 이미 방문한 정점이면 무시
+        if v in visited:
+            continue
+
+        # 새로운 정점을 방문한 것으로 표시
+        visited.add(v)
+
+        # 최소 스패닝 트리에 간선 추가
+        minimum_spanning_tree.append((u, v, weight))
+
+        # 새로운 정점과 연결된 간선들을 우선순위 큐에 추가
+        for neighbor, weight in graph[v]:
+            heapq.heappush(edges, (weight, v, neighbor))
+
+    return minimum_spanning_tree
 
 
 n = int(input())
-graph = []
+
+stars = []
 for _ in range(n):
-    x, y = list(map(float, input().split()))
-    graph.append([x, y])
+    x, y = list(map(str, input().split()))
+    x = Decimal(x)
+    y = Decimal(y)
+    stars.append((x, y))
 
+graph = [[] for _ in range(n)]
+for i in range(n):
+    for k in range(n):
+        if i == k:
+            continue
+        distance = ((stars[i][0] - stars[k][0]) ** Decimal("2") + (stars[i][1] - stars[k][1]) ** Decimal("2")) ** Decimal("0.5")
+        graph[i].append((k, distance))
 
-if n == 1:
-    print(0)
-else:
-    distance_list = []
-    for star_1_idx in range(n - 1):
-        for star_2_idx in range(star_1_idx + 1, n):
-            distance_list.append(
-                [cal_dist(graph[star_1_idx], graph[star_2_idx]), star_1_idx, star_2_idx]
-            )
-
-    distance_list.sort(key=lambda x: x[0])
-    included_star_idx_list = set()
-    result = 0
-    edge_count = 0
-    for selected_dist in distance_list:
-        dist, star_1_idx, star_2_idx = selected_dist
-        if (
-            star_1_idx in included_star_idx_list
-            and star_2_idx in included_star_idx_list
-        ):
-            pass
-        else:
-            print(
-                "거리 : {}, 별의 좌표 : ({},{}), ({},{})".format(
-                    round(dist, 3),
-                    graph[star_1_idx][0],
-                    graph[star_1_idx][1],
-                    graph[star_2_idx][0],
-                    graph[star_2_idx][1],
-                )
-            )
-            included_star_idx_list.update([star_1_idx, star_2_idx])
-            result += dist
-            edge_count += 1
-            if edge_count == n - 1:
-                print(edge_count, n - 1)
-                break
-
-    print((included_star_idx_list))
-    print(edge_count)
-    print(result)
+mst = prim(graph, 0, n)
+print(sum(i[2] for i in mst))
