@@ -1,73 +1,128 @@
+# import sys
+# import decimal
+# import math
+# from decimal import ROUND_DOWN
+
+# input = sys.stdin.readline
+
+# n, m = list(map(int, input().split()))
+# got_position = [[]]
+# parents = [i for i in range(n + 1)]
+
+# for _ in range(n):
+#     x, y = list(map(int, input().split()))
+#     x = decimal.Decimal(str(x))
+#     y = decimal.Decimal(str(y))
+
+#     got_position.append((x, y))
+
+# graph = []
+# for i in range(1, n):
+#     for k in range(i, n + 1):
+#         weight = (
+#             (got_position[i][0] - got_position[k][0]) ** decimal.Decimal("2") + (got_position[i][1] - got_position[k][1]) ** decimal.Decimal("2")
+#         ) ** decimal.Decimal("0.5")
+#         graph.append((i, k, weight))
+
+# for _ in range(m):
+#     a, b = list(map(int, input().split()))
+#     if a > b:
+#         parents[a] = b
+#     else:
+#         parents[b] = a
+
+
+# def find(x):
+#     if parents[x] != x:
+#         parents[x] = find(parents[x])
+#     return parents[x]
+
+
+# def union(a, b):
+#     root_a = find(a)
+#     root_b = find(b)
+#     if root_a > root_b:
+#         parents[root_a] = parents[root_b]
+#     elif root_a == root_b:
+#         return
+#     else:
+#         parents[root_b] = parents[root_a]
+
+
+# def kruskal(graph):
+#     edges = sorted(graph, key=lambda x: x[2])
+#     mst = []
+
+#     for edge in edges:
+#         v1, v2, weight = edge
+
+#         if find(v1) != find(v2):
+#             mst.append(edge)
+#             union(v1, v2)
+
+#     return mst
+
+
+# mst = kruskal(graph)
+# result = sum([i[2] for i in mst])
+# print(result.quantize(decimal.Decimal("0.00"), rounding=ROUND_DOWN))
+
+###########################################################################################
+# ! 위의 코드는 논리적으로 같으나 시간 초과가 발생
+# Python의 decimal 모듈에서 Decimal 유형을 사용하는 작업은 일반적으로 int 또는 float와 같은 내장 숫자 유형을 사용하는 작업보다 느립니다.
+
 import sys
 
 input = sys.stdin.readline
 
-N, M = map(int, input().split())
 
-position_of_gods = [(-1, -1)]
-roads = []
-for _ in range(N):
-    x, y = map(int, input().split())
-    position_of_gods.append((x, y))
+def calculate_dist(a, b):
+    x1, y1 = a[0], a[1]
+    x2, y2 = b[0], b[1]
+    return ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 0.5
 
-roads = [[False for __ in range(N + 1)] for _ in range(N + 1)]
-connected_roads = []
-for _ in range(M):
+
+def find(x):
+    if x != parent[x]:
+        parent[x] = find(parent[x])
+    return parent[x]
+
+
+def union(a, b):
+    root_a = find(a)
+    root_b = find(b)
+    parent[max(root_a, root_b)] = min(root_a, root_b)
+
+
+n, m = map(int, input().split())
+parent = [i for i in range(n + 1)]
+
+graph = [[]]  # n+1의 개수(인덱스는 0,1 ... n)
+for i in range(n):
+    graph.append(list(map(int, input().split())))
+
+for _ in range(m):
     a, b = map(int, input().split())
-    roads[a][b] = True
-    roads[b][a] = True
-    connected_roads.append((a, b))
+    union(a, b)
 
+edges = []  # 1부터 n-1
+for i in range(1, n):
+    for j in range(i + 1, n + 1):
+        edges.append([calculate_dist(graph[i], graph[j]), i, j])
+# print(edges)
 
-parents = [x for x in range(0, N + 1)]
+edges.sort()
+result = 0
 
+# mst = []
+for edge in edges:
+    cost, x, y = edge
 
-def find_set(x):
-    while x != parents[x]:
-        x = parents[x]
+    if find(x) != find(y):
+        union(x, y)
+        result += cost
 
-    return x
-
-
-# 이미 연결된 우주신끼리의 그래프
-for a, b in connected_roads:
-    parents_a = find_set(a)
-    parents_b = find_set(b)
-    if parents_a > parents_b:
-        parents[parents_a] = parents_b
-    else:
-        parents[parents_b] = parents_a
-
-
-new_road_candidates = []
-
-for x in range(1, N + 1):
-    for y in range(1, N + 1):
-        if x == y:
-            pass
-        if roads[x][y] is True:
-            pass
-        else:
-            dist = ((position_of_gods[x][0] - position_of_gods[y][0]) ** 2 + (position_of_gods[x][1] - position_of_gods[y][1]) ** 2) ** (0.5)
-            new_road_candidates.append((x, y, dist))
-
-sum_of_weight = 0
-edge_count = 0
-new_road_candidates.sort(key=lambda x: x[2])
-for x, y, dist in new_road_candidates:
-    parent_x = find_set(x)
-    parent_y = find_set(y)
-    if parent_x != parent_y:
-        if parent_x > parent_y:
-            parents[parent_x] = parent_y
-        else:
-            parents[parent_y] = parent_x
-        # print(parents)
-        # print(x, y, dist)
-        sum_of_weight += dist
-        edge_count += 1
-
-        if edge_count == N - 1 - M:
-            break
-
-print("%.2f" % (sum_of_weight))
+# print(graph)
+# print(edges)
+# print(mst)
+print("{:.2f}".format(result))

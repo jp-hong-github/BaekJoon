@@ -32,7 +32,13 @@
   },
   "next row col": {
     "scope": "python",
-    "prefix": "nextrowcol",
-    "body": ["for dRow, dCol in direction:", "    nRow = cRow + dRow", "    nCol = cCol + dCol"]
+    "prefix": "nrc",
+    "body": [
+      "for dRow, dCol in direction:",
+      "    nRow = cRow + dRow",
+      "    nCol = cCol + dCol",
+      "    if not (0 <= nRow < n and 0 <= nCol < m):",
+      "        continue"
+    ]
   }
 }
