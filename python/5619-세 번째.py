@@ -1,23 +1,17 @@
 import sys
-import heapq
+from itertools import permutations
 
 input = sys.stdin.readline
 
 n = int(input())
-
-num_list = []
+numbers: list = []
 for _ in range(n):
-    num_list.append(int(input()))
-num_list.sort()
+    numbers.append(int(input()))
 
+numbers.sort()
 
-q = []
-for i in range(n):
-    for k in range(n):
-        if i != k:
-            heapq.heappush(q, -int("%d%d" % (num_list[i], num_list[k])))
-            if len(q) >= 4:
-                heapq.heappop(q)
+case = list(permutations(numbers[:4], 2))
 
-
-print(-heapq.heappop(q))
+case_number = [int(str(a) + str(b)) for a, b in case]
+case_number.sort()
+print(case_number[2])
