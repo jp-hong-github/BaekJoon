@@ -1,56 +1,53 @@
-import heapq
 import sys
+from heapq import heappop, heappush
+
 input = sys.stdin.readline
-INF = int(1e9)
 
-n,m = map(int,input().split())
+n, m = list(map(int, input().split()))
 
-graph = [[] for i in range(n+1)]
-
-
-
+graph = [[] for _ in range(n + 1)]
 for _ in range(m):
-    a,b,c = map(int,input().split())
-    graph[a].append((b,c))
-    graph[b].append((a,c))
+    a, b, c = list(map(int, input().split()))
+    graph[a].append((c, b))
+    graph[b].append((c, a))
 
 
-p,q = map(int,input().split())
+p, q = list(map(int, input().split()))
+candidate_house_list = list(map(int, input().split()))  # 집의 후보지
+candidate_store_list = list(map(int, input().split()))  # 편의점의 후보지
 
-house = list(map(int,input().split()))
-store = list(map(int,input().split()))
 
-distance = {}
-for h in house:
-    distance[h] = [INF] * (n+1)
+# 각 편의점마다 다익스트라 알고리즘 실행 <- 시간 초과 발생
+# for store in candidate_store_list:
 
-def dijkstra(start_house):
-    q = []
-    heapq.heappush(q,(0,start_house))
-    distance[start_house][start_house] = 0
-    while q:
-        dist,now = heapq.heappop(q)
-        if distance[start_house][now] < dist:
-            continue
-        for i in graph[now]:
-            #pirnt(dist,)
-            cost = dist + i[1]
-            if cost <distance[start_house][i[0]]:
-                distance[start_house][i[0]] = cost
-                heapq.heappush(q,(cost,i[0]))
-                
-for h in house:
-    dijkstra(h)
-    
-distnace_temp = INF
-result = INF
-for h in house:
-    for s in store:
-        if distance[h][s]<distnace_temp:
-            distnace_temp = distance[h][s]
-            result = h
-        elif distance[h][s]==distnace_temp and h<result:
-            result = h
-        #print(distance[h][s])
-#print(distance)
-print(result)
+# ! 처음 부터 힙에 모든 편의점을 넣음
+dist_list = [float("inf") for _ in range(n + 1)]
+heap = []
+# 모든 편의점의 거리는 0으로 설정
+for store in candidate_store_list:
+    dist_list[store] = 0
+    heappush(heap, (0, store))
+
+
+while heap:
+    current_dist, current_pos = heappop(heap)
+    if current_dist > dist_list[current_pos]:
+        continue
+
+    for neighbor_dist, neighbor in graph[current_pos]:
+        total_dist = current_dist + neighbor_dist
+
+        if total_dist < dist_list[neighbor]:
+            dist_list[neighbor] = total_dist
+            heappush(heap, (total_dist, neighbor))
+
+
+# 정점 중 집까지의 거리만 계산
+min_dist_result = float("inf")
+answer_house = 0
+for candidate in candidate_house_list:
+    if min_dist_result > dist_list[candidate] or (min_dist_result == dist_list[candidate] and answer_house > candidate):
+        min_dist_result = dist_list[candidate]
+        answer_house = candidate
+
+print(answer_house)
