@@ -1,29 +1,50 @@
-T = int(input())
-func_list = []
-arr_list = []
+import sys
+from collections import deque
 
-import re
+input = sys.stdin.readline
 
-for i in range(T):
-    func_list.append(input().split())
-    a = input()
-    temp = input()
-    arr_list.append(int(re.sub("\[|\]|,","",temp)))
-    
-print(arr_list)
+t = int(input())
+for _ in range(t):
+    func = input().rstrip()
+    n = int(input())
+    errorFlag = False
+    if n == 0:
+        input()
+        arr = []
+    else:
+        arr = deque(list(map(int, input().strip().lstrip("[").rstrip("]").split(","))))
 
-'''
-4
-RDD
-4
-[1,2,3,4]
-DD
-1
-[42]
-RRD
-6
-[1,1,2,3,5,8]
-D
-0
-[]
-'''
+    direction = "front"
+    for operation in func:
+        if operation == "R":
+            if direction == "front":
+                direction = "rear"
+            else:
+                direction = "front"
+        else:
+            if len(arr) == 0:
+                errorFlag = True
+                break
+            else:
+                if direction == "front":
+                    arr.popleft()
+                else:
+                    arr.pop()
+
+    if len(arr) == 0 and errorFlag:
+        print("error")
+    else:
+        print("[", end="")
+        if direction == "front":
+            for i, v in enumerate(arr):
+                if i == len(arr) - 1:
+                    print(v, end="")
+                else:
+                    print(v, end=",")
+        else:
+            for i in range(len(arr) - 1, -1, -1):
+                if i == 0:
+                    print(arr[i], end="")
+                else:
+                    print(arr[i], end=",")
+        print("]")
