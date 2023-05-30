@@ -1,25 +1,14 @@
-import time
+import sys
 
-start_time = time.time()
+input = sys.stdin.readline
 
-def fac(n):
-    if n==1:
-        return 1
-    else:
-        return n*fac(n-1)
-            
-N = int(input())
-result = fac(N)
-answer=0
-while(1):
-    if result%10 == 0:
-        result = result/10
-    else:
-        answer = result%10
+n = int(input())
+result = 1
+for i in range(1, n + 1):
+    result *= i
+
+result = str(result)
+for num in result[::-1]:
+    if int(num) != 0:
+        print(num)
         break
-
-print(answer)
-
-
-end_time =time.time()
-print(end_time-start_time)
