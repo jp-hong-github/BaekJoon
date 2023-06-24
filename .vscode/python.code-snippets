@@ -9,6 +9,11 @@
     "prefix": "lm",
     "body": ["list(map(int,input().split()))"]
   },
+  "map int": {
+    "scope": "python",
+    "prefix": "mi",
+    "body": ["map(int,input().split())"]
+  },
   "direction": {
     "scope": "python",
     "prefix": "drc",
