@@ -34,5 +34,10 @@
     "scope": "python",
     "prefix": "gln",
     "body": ["graph = [list(map(int, input().split())) for _ in range(n)]"]
+  },
+  "int input()": {
+    "scope": "python",
+    "prefix": "ii",
+    "body": ["int(input())"]
   }
 }
