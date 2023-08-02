@@ -4,9 +4,9 @@
     "prefix": "ipt",
     "body": ["import sys", "", "input = sys.stdin.readline"]
   },
-  "list map": {
+  "list map int": {
     "scope": "python",
-    "prefix": "lm",
+    "prefix": "lmi",
     "body": ["list(map(int,input().split()))"]
   },
   "map int": {
