@@ -10,7 +10,7 @@ list_permutation_numbers = list(permutations(numbers, N))
 result = 0
 
 for case in list_permutation_numbers:
-    result_case = 0 
+    result_case = 0
     circle_slice_idx_0_to_9 = [False] * 100
     circle_slice_idx_0_to_9[0] = True
     """
@@ -38,6 +38,6 @@ for case in list_permutation_numbers:
             and circle_slice_idx_0_to_9[i + 50] is True
         ):
             result_case += 1
-    result = max(result,result_case)
+    result = max(result, result_case)
 
 print(result)

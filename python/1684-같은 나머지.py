@@ -15,4 +15,3 @@ diff = [num_list[i + 1] - num_list[i] for i in range(len(num_list) - 1)]
 
 result = math.gcd(*diff)
 print(result)
-

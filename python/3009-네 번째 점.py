@@ -20,4 +20,3 @@ elif y == point_3[1]:
     y = point_2[1]
 
 print(x, y)
-

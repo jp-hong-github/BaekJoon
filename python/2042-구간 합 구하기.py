@@ -24,7 +24,6 @@ def init(node, start, end):
 # node가 담당하는 구간 [start, end]
 # 합을 구해야하는 구간 [left, right]
 def subSum(node, start, end, left, right):
-
     # 겹치지 않기 때문에, 더 이상 탐색을 이어갈 필요가 없다.
     if left > end or right < start:
         return 0
@@ -43,7 +42,6 @@ def subSum(node, start, end, left, right):
 
 
 def update(node, start, end, index, diff):
-
     if index < start or index > end:
         return
 
@@ -75,4 +73,3 @@ for _ in range(m + k):
         update(1, 0, n - 1, b, diff)
     elif a == 2:
         print(subSum(1, 0, n - 1, b - 1, c - 1))
-

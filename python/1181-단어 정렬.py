@@ -1,9 +1,9 @@
 n = int(input())
 
-data  = set([])
+data = set([])
 for i in range(n):
     text = input()
-    data.add((len(text),text))
+    data.add((len(text), text))
 
 data = list(data)
 data.sort()

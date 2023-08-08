@@ -7,4 +7,3 @@ for _ in range(N):
     temp = input()
 
 print("비와이")
-

@@ -8,6 +8,7 @@ street = input()
 
 dp = [float("inf")] * (n + 1)
 
+
 # B이면 O를 만났을 때 종료, O이면 J를 만날 때까지, J이면 B를 만날 때까지
 def get_prev(x):
     if x == "B":
@@ -26,4 +27,3 @@ for i in range(1, n):
             dp[i] = min(dp[i], dp[j] + pow(i - j, 2))
 
 print(dp[n - 1] if dp[n - 1] != float("inf") else -1)
-

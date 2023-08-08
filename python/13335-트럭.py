@@ -21,7 +21,10 @@ while True:
 
     if current_truck_idx < n:
         current_truck_weight = trucks[current_truck_idx]
-        if total_truck_bridge + 1 <= w and current_truck_weight + current_weight_sum <= l:
+        if (
+            total_truck_bridge + 1 <= w
+            and current_truck_weight + current_weight_sum <= l
+        ):
             bridge.append([current_truck_weight, result_time + w])
             total_truck_bridge += 1
             current_weight_sum += current_truck_weight

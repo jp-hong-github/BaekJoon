@@ -6,4 +6,3 @@ NX Cruiser     Medium Fighter Limited    18
 N1 Starfighter Medium Fighter Unlimited  25        
 Royal Cruiser  Light Combat   Limited    4         """
 )
-

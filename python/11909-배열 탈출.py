@@ -89,13 +89,17 @@ for row in range(n):
             continue
         elif row == 0:
             if graph[row][col] >= graph[row][col - 1]:
-                dp[row][col] = dp[row][col - 1] + graph[row][col] - graph[row][col - 1] + 1
+                dp[row][col] = (
+                    dp[row][col - 1] + graph[row][col] - graph[row][col - 1] + 1
+                )
             else:
                 dp[row][col] = dp[row][col - 1]
 
         elif col == 0:
             if graph[row][col] >= graph[row - 1][col]:
-                dp[row][col] = dp[row - 1][col] + graph[row][col] - graph[row - 1][col] + 1
+                dp[row][col] = (
+                    dp[row - 1][col] + graph[row][col] - graph[row - 1][col] + 1
+                )
             else:
                 dp[row][col] = dp[row - 1][col]
         else:
@@ -112,4 +116,3 @@ for row in range(n):
             dp[row][col] = min(cost1, cost2)
 
 print(dp[n - 1][n - 1])
-

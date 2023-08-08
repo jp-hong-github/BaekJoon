@@ -26,4 +26,3 @@ for _ in range(T):
                 break
 
     print(result)
-

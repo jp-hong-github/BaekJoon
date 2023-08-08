@@ -1,5 +1,6 @@
 import sys
 from collections import deque
+
 input = sys.stdin.readline
 
 n, m = map(int, input().split())
@@ -10,7 +11,7 @@ for i in range(n):
     temp = list(map(int, input().split()))
     for t in range(m):
         if temp[t] == 1:
-            shark.append((i,t))
+            shark.append((i, t))
     arr.append(temp)
 
 mx = [-1, -1, -1, 0, 1, 0, 1, 1]
@@ -25,7 +26,7 @@ def bfs():
             dy = y + my[k]
             if 0 <= dx < n and 0 <= dy < m:
                 if arr[dx][dy] == 0:
-                    shark.append((dx,dy))
+                    shark.append((dx, dy))
                     arr[dx][dy] = arr[x][y] + 1
     return
 

@@ -13,6 +13,7 @@ for _ in range(r):
 dRow = [-1, 1, 0, 0]
 dCol = [0, 0, -1, 1]
 
+
 # bfs
 def bfs(graph, row, col):
     q = deque([(row, col)])

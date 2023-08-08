@@ -13,7 +13,7 @@ for i in range(n):
         else:
             result.append(heapq.heappop(heap))
     else:
-        heapq.heappush(heap,temp)
+        heapq.heappush(heap, temp)
 
 for i in result:
     print(i)

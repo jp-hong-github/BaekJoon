@@ -26,7 +26,9 @@ def backtracking(row, col, count):
         for idx in range(4):
             next_row = row + directions[idx][0]
             next_col = col + directions[idx][1]
-            if (0 <= next_row <= R - 1) and (0 <= next_col <= C - 1):  # 다음 지점이 범위 내인지 확인
+            if (0 <= next_row <= R - 1) and (
+                0 <= next_col <= C - 1
+            ):  # 다음 지점이 범위 내인지 확인
                 if graph[next_row][next_col] != "T":
                     if visited[next_row][next_col] is False:  # 이미 지나간 점인지 확인
                         visited[next_row][next_col] = True
@@ -37,4 +39,3 @@ def backtracking(row, col, count):
 visited[R - 1][0] = True
 backtracking(R - 1, 0, 1)
 print(result)
-

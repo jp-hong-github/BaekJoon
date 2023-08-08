@@ -12,6 +12,7 @@ for i in range(k):
     r, c = map(int, input().split())
     graph[r][c] = 1
 
+
 # bfs
 def bfs(graph, row, col):
     q = deque([(row, col)])

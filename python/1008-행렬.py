@@ -12,7 +12,8 @@ def flip(i, j):
         for y in range(j, j + 3):
             A[x][y] = 1 - A[x][y]
 
-result = 0 
+
+result = 0
 for i in range(N - 2):  # 줄바꿈 가능 횟수
     for j in range(M - 2):  # 가로 줄 이동 가능 횟수
         if A[i][j] != B[i][j]:

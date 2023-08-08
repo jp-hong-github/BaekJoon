@@ -25,12 +25,22 @@ def dfs(graph, first_row, first_col, row, col, direction, color, win_check):
         visited[row][col][direction] = True
         next_row = row + d_row[direction]
         next_col = col + d_col[direction]
-        if not (next_row >= 19 or next_col >= 19 or next_row <= -1 or next_col <= -1) and graph[next_row][next_col] == color:
+        if (
+            not (next_row >= 19 or next_col >= 19 or next_row <= -1 or next_col <= -1)
+            and graph[next_row][next_col] == color
+        ):
             if next_col < first_col:
                 first_row = next_row
                 first_col = next_col
             dfs(
-                graph, first_row, first_col, next_row, next_col, direction, color, win_check + 1,
+                graph,
+                first_row,
+                first_col,
+                next_row,
+                next_col,
+                direction,
+                color,
+                win_check + 1,
             )
             # print(row, col, win_check)
         else:
@@ -50,4 +60,3 @@ if result["color_win"] is None:
 else:
     print(result["color_win"])
     print(f'{result["row"]} {result["col"]}')
-

@@ -20,8 +20,8 @@ else:
     while box:
         for c in crane:
             right = bisect.bisect_right(box, c)
-            if box and box[right-1] <= c:
-                box.pop(right-1)
+            if box and box[right - 1] <= c:
+                box.pop(right - 1)
 
         result += 1
     print(result)

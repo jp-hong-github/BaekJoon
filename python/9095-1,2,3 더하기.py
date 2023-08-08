@@ -18,4 +18,3 @@ for a in range(4, 11):
 for _ in range(T):
     num = int(input())
     print(dp[num])
-

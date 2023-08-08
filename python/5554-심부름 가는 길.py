@@ -5,4 +5,3 @@ for _ in range(4):
 
 print(answer // 60)
 print(answer % 60)
-

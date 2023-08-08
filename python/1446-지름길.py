@@ -23,4 +23,3 @@ for i in range(0, d + 1):
             distance[end] = min(distance[end], distance[i] + road[i][end])
 
 print(distance[d])
-

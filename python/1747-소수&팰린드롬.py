@@ -23,4 +23,3 @@ for k in range(n, max_n, 1):
         if original_num == reverse_num:
             print(k)
             break
-

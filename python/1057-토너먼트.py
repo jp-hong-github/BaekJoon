@@ -17,7 +17,9 @@ result = -1
 round = 1
 while N > 1:
     # 만나는 경우
-    if (J - H == 1 and J % 2 == 0 and H % 2 == 1) or (H - J == 1 and J % 2 == 1 and H % 2 == 0):
+    if (J - H == 1 and J % 2 == 0 and H % 2 == 1) or (
+        H - J == 1 and J % 2 == 1 and H % 2 == 0
+    ):
         result = round
         break
 

@@ -40,4 +40,3 @@ for idx, rec in enumerate(recommend_lst):
 result = list(list(zip(*photo))[-1])
 result.sort()
 print(*result)
-

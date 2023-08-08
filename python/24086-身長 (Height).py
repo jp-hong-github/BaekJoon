@@ -1,7 +1,8 @@
 import sys
-input=sys.stdin.readline
+
+input = sys.stdin.readline
 
 A = int(input())
 B = int(input())
 
-print(abs(A-B))
+print(abs(A - B))

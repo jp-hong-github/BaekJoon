@@ -14,7 +14,16 @@ visited[n] = 0
 while q:
     cur = q.popleft()
 
-    for next in [cur - 1, cur + 1, cur - a, cur + a, cur - b, cur + b, cur * a, cur * b]:
+    for next in [
+        cur - 1,
+        cur + 1,
+        cur - a,
+        cur + a,
+        cur - b,
+        cur + b,
+        cur * a,
+        cur * b,
+    ]:
         if next == m:
             print(visited[cur] + 1)
             sys.exit()

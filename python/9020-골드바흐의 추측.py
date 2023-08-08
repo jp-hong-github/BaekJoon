@@ -17,7 +17,9 @@ gold_list = [[0, 1000000] for _ in range(10001)]  # 대강 차이가 많이 나�
 for i in range(len(prime_number) - 1):
     for k in range(i, len(prime_number)):
         idx = prime_number[i] + prime_number[k]
-        if idx < len(gold_list) and (gold_list[idx][1] - gold_list[idx][0]) > (prime_number[k] - prime_number[i]):
+        if idx < len(gold_list) and (gold_list[idx][1] - gold_list[idx][0]) > (
+            prime_number[k] - prime_number[i]
+        ):
             gold_list[idx][1] = prime_number[k]
             gold_list[idx][0] = prime_number[i]
 
@@ -25,4 +27,3 @@ t = int(input())
 for _ in range(t):
     number = int(input())
     print(*gold_list[number])
-

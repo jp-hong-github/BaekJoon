@@ -29,12 +29,16 @@ def backtracking(l, string, used_number_set, idx):
                     if signs[idx - 1] == "<":
                         if int(string[idx - 1]) < i:
                             used_number_set.add(i)
-                            backtracking(l + 1, string + f"{i}", used_number_set, idx + 1)
+                            backtracking(
+                                l + 1, string + f"{i}", used_number_set, idx + 1
+                            )
                             used_number_set.remove(i)
                     else:
                         if int(string[idx - 1]) > i:
                             used_number_set.add(i)
-                            backtracking(l + 1, string + f"{i}", used_number_set, idx + 1)
+                            backtracking(
+                                l + 1, string + f"{i}", used_number_set, idx + 1
+                            )
                             used_number_set.remove(i)
 
 

@@ -1,7 +1,8 @@
 import sys
+
 input = sys.stdin.readline
 
-n =int(input())
+n = int(input())
 #############################################################################################
 # place = [-1]*n
 # result = [0]
@@ -18,10 +19,10 @@ n =int(input())
 #             for i in range(idx):
 #                 if place[i] == place[idx] or idx-i == abs(place[idx]-place[i]):
 #                     check = False
-        
+
 #             if check == True:
 #                 backtracking(idx+1)
-            
+
 # backtracking(0)
 
 # print(result[0])

@@ -22,8 +22,8 @@ for row in range(N):
                         break
                     n_row = n_row + d_row
                     n_col = n_col + d_col
-                    if int(num ** 0.5) ** 2 == num:
-                            result = max(result, num)
+                    if int(num**0.5) ** 2 == num:
+                        result = max(result, num)
                     if 0 <= n_row < N and 0 <= n_col < M:
                         num = num * 10 + graph[n_row][n_col]
                     else:

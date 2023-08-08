@@ -17,4 +17,3 @@ if dp[n] != INF:
     print(dp[n])
 else:
     print(-1)
-

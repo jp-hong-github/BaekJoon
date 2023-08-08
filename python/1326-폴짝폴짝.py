@@ -41,7 +41,7 @@ while q:
         )
         negative -= 1
 
-if result!=int(10e9):
+if result != int(10e9):
     print(result)
 else:
     print(-1)

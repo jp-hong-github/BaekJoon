@@ -17,10 +17,10 @@ while start <= end:
             mid = 1
         else:
             break
-    #print(start, mid, end, end=" ")
+    # print(start, mid, end, end=" ")
     for i in drink:
         num_of_cups += i // mid
-    #print(num_of_cups)
+    # print(num_of_cups)
     if num_of_cups >= k:
         result = mid
         start = mid + 1

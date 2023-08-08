@@ -12,7 +12,6 @@ result = []
 
 
 def dfs(idx, count):
-
     if count == m:
         for i in result:
             print(i, end=" ")
@@ -28,4 +27,3 @@ def dfs(idx, count):
 
 
 dfs(0, 0)
-

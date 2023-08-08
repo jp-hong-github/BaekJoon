@@ -30,4 +30,3 @@ for study in lectures:
     # print(q)
 
 print(count)
-

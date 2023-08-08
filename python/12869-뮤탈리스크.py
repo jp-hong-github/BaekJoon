@@ -11,7 +11,9 @@ if len(scv) == 1:
 elif len(scv) == 2:
     scv.append(0)
 
-attack_case = [[[float("inf") for _ in range(61)] for _ in range(61)] for _ in range(61)]
+attack_case = [
+    [[float("inf") for _ in range(61)] for _ in range(61)] for _ in range(61)
+]
 attack_case[0][0][0] = 0
 
 for a in range(61):
@@ -23,8 +25,16 @@ for a in range(61):
                 n_x = max(0, x - 9)
                 n_y = max(0, y - 3)
                 n_z = max(0, z - 1)
-                attack_case[a][b][c] = min(attack_case[a][b][c], attack_case[x][y][z], attack_case[n_x][n_y][n_z] + 1)
-                attack_case[x][y][z] = min(attack_case[a][b][c], attack_case[x][y][z], attack_case[n_x][n_y][n_z] + 1)
+                attack_case[a][b][c] = min(
+                    attack_case[a][b][c],
+                    attack_case[x][y][z],
+                    attack_case[n_x][n_y][n_z] + 1,
+                )
+                attack_case[x][y][z] = min(
+                    attack_case[a][b][c],
+                    attack_case[x][y][z],
+                    attack_case[n_x][n_y][n_z] + 1,
+                )
 
 print(attack_case[scv[0]][scv[1]][scv[2]])
 

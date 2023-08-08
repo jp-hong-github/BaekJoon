@@ -15,7 +15,9 @@ for app in range(1, n + 1):
         if costs[app] > cost:
             dp[app][cost] = dp[app - 1][cost]
         else:
-            dp[app][cost] = max(dp[app - 1][cost], apps[app] + dp[app - 1][cost - costs[app]])
+            dp[app][cost] = max(
+                dp[app - 1][cost], apps[app] + dp[app - 1][cost - costs[app]]
+            )
             if dp[app][cost] >= m:
                 result = min(result, cost)
 

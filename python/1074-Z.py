@@ -37,4 +37,3 @@ def solution(n, r, c):
 
 
 print(solution(N, r, c))
-

@@ -51,4 +51,3 @@ for i in arr2:
         print(dict1[i], end=" ")  # 존재하는 숫자 카드라면
     else:
         print(0, end=" ")  # 존재하지 않는 숫자 카드라면
-

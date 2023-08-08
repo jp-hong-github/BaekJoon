@@ -17,7 +17,7 @@ dp[0] = 0
 for i in range(1, 1000 + 1):
     for k in range(i):
         for case in city:
-            if case[1] >= i - k: # ! 최소라는 것이 중요
+            if case[1] >= i - k:  # ! 최소라는 것이 중요
                 dp[i] = min(dp[i], dp[k] + case[2])
 
 

@@ -10,6 +10,7 @@ B = list(map(int, input().split()))
 
 A.sort()
 
+
 # 이진탐색
 def binary_search_tree(num):
     global A

@@ -15,4 +15,7 @@ else:
     else:
         circle_row = k // col + 1  # 2
         circle_col = k % col  # 3
-    print(math.comb(circle_row - 1 + circle_col - 1, circle_col - 1) * math.comb(row - (circle_row) + (col - circle_col), (col - circle_col)))
+    print(
+        math.comb(circle_row - 1 + circle_col - 1, circle_col - 1)
+        * math.comb(row - (circle_row) + (col - circle_col), (col - circle_col))
+    )

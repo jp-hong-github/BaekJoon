@@ -4,6 +4,7 @@ input = sys.stdin.readline
 
 graph = [list(map(int, input().split())) for _ in range(9)]
 
+
 # 해당 칸에 value값이 들어가도 되는지 확인
 def check(row, col, value):
     # 가로 확인
@@ -84,4 +85,3 @@ def sdk_00(row, col, count):
 
 
 sdk_00(0, 0, 0)
-

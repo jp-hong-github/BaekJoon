@@ -10,6 +10,7 @@ edges = [tuple(map(int, input().split())) for _ in range(M)]  # 각 간선을 �
 earn = list(map(int, input().split()))  # 각 도시에서 버는 돈
 dist = [NEGATIVE_INF for _ in range(N + 1)]
 
+
 # 도착지점이 사이클과 연결되어 있는지 확인
 def end_city_in_cycle(node):
     visited = [False for _ in range(N)]
@@ -36,7 +37,10 @@ def bf(start_city):
     for i in range(N):
         for k in range(M):
             cur_node, next_node, cost = edges[k]
-            if dist[cur_node] != NEGATIVE_INF and dist[next_node] < dist[cur_node] - cost + earn[next_node]:
+            if (
+                dist[cur_node] != NEGATIVE_INF
+                and dist[next_node] < dist[cur_node] - cost + earn[next_node]
+            ):
                 dist[next_node] = dist[cur_node] - cost + earn[next_node]
                 if i == N - 1:
                     # cycle_check = True
@@ -62,4 +66,3 @@ elif cycle_check:
     print("Gee")
 else:
     print(dist[end_city])
-

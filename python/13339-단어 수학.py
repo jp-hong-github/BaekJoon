@@ -61,4 +61,3 @@ print(result // 10)
 #     result = max(result, temp_result)
 
 # print(result)
-

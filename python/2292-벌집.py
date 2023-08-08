@@ -11,4 +11,3 @@ while True:
         break
     sum += temp * 6
     temp += 1
-

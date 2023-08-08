@@ -29,7 +29,7 @@ current_shark_size = 2
 
 while flag:
     q = deque([current_shark_position])
-    fish_candidate = {"row": N, "col": N, "move_count": N ** 2 + 1}
+    fish_candidate = {"row": N, "col": N, "move_count": N**2 + 1}
     visited = [[False for _ in range(N)] for _ in range(N)]
 
     visited[current_shark_position[0]][current_shark_position[1]] = True
@@ -39,7 +39,11 @@ while flag:
         for d_row, d_col in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             n_row = row + d_row
             n_col = col + d_col
-            if 0 <= n_row <= N - 1 and 0 <= n_col <= N - 1 and visited[n_row][n_col] == False:
+            if (
+                0 <= n_row <= N - 1
+                and 0 <= n_col <= N - 1
+                and visited[n_row][n_col] == False
+            ):
                 if graph[n_row][n_col] == 0 or graph[n_row][n_col] == 9:  # 단순 길
                     q.append((n_row, n_col, move_count + 1))
 
@@ -52,9 +56,20 @@ while flag:
                 elif graph[n_row][n_col] < current_shark_size:  # 크기가 작은 물고기
                     if move_count + 1 <= fish_candidate["move_count"]:
                         if fish_candidate["row"] > n_row:
-                            fish_candidate = {"row": n_row, "col": n_col, "move_count": move_count + 1}
-                        elif fish_candidate["row"] == n_row and fish_candidate["col"] > n_col:
-                            fish_candidate = {"row": n_row, "col": n_col, "move_count": move_count + 1}
+                            fish_candidate = {
+                                "row": n_row,
+                                "col": n_col,
+                                "move_count": move_count + 1,
+                            }
+                        elif (
+                            fish_candidate["row"] == n_row
+                            and fish_candidate["col"] > n_col
+                        ):
+                            fish_candidate = {
+                                "row": n_row,
+                                "col": n_col,
+                                "move_count": move_count + 1,
+                            }
 
                 visited[n_row][n_col] = True
 

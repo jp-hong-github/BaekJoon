@@ -14,4 +14,3 @@ if x == total:
     print("Yes")
 else:
     print("No")
-

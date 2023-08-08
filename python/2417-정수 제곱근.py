@@ -11,7 +11,7 @@ while start <= end:
     mid = (start + end) // 2
     # print(start, end, mid, mid ** 2, n)
 
-    temp = mid ** 2
+    temp = mid**2
     if temp == n:
         result = mid
         break

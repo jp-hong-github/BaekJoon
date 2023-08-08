@@ -18,4 +18,3 @@ def permutation(value, count, numList):
 
 
 permutation(0, 0, [])
-

@@ -78,7 +78,11 @@ visited_color_blind = [[False for _ in range(n)] for _ in range(n)]
 visited_no_color_blind = [[False for _ in range(n)] for _ in range(n)]
 for r in range(n):
     for c in range(n):
-        result["color blindness"] += bfs_color_blind(graph, n, visited_color_blind, r, c)
-        result["no color blindness"] += bfs_no_color_blind(graph, n, visited_no_color_blind, r, c)
+        result["color blindness"] += bfs_color_blind(
+            graph, n, visited_color_blind, r, c
+        )
+        result["no color blindness"] += bfs_no_color_blind(
+            graph, n, visited_no_color_blind, r, c
+        )
 
 print(result["no color blindness"], result["color blindness"])

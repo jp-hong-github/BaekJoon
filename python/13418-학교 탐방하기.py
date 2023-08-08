@@ -37,5 +37,4 @@ graph.sort(key=lambda x: x[2])
 best = kruskal(graph)
 graph.sort(key=lambda x: -x[2])
 worst = kruskal(graph)
-print(abs(worst ** 2 - best ** 2))
-
+print(abs(worst**2 - best**2))

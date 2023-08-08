@@ -25,4 +25,3 @@ for i in han_su_list:
         result += 1
 
 print(result)
-

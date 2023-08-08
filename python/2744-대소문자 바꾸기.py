@@ -10,4 +10,3 @@ for chr in string:
     else:
         temp = chr.upper()
     print(temp, end="")
-

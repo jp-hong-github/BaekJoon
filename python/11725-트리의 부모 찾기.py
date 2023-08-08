@@ -1,11 +1,12 @@
 import sys
+
 input = sys.stdin.readline
 
 n = int(input())
 graph = {}
 
-for i in range(n-1):
-    a,b = map(int,input().split())
+for i in range(n - 1):
+    a, b = map(int, input().split())
     if a in graph:
         graph[a].append(b)
     else:
@@ -16,7 +17,8 @@ for i in range(n-1):
         graph[b] = [a]
 
 from collections import deque
-result = [0] *(n+1)
+
+result = [0] * (n + 1)
 
 q = deque([1])
 while q:
@@ -26,5 +28,5 @@ while q:
         graph[u].remove(value)
         q.append(u)
 
-for i in range(2,n+1):
+for i in range(2, n + 1):
     print(result[i])

@@ -45,4 +45,3 @@ for fisrt_number_idx in range(0, n - 2):
             # print("다음 start : %d,다음 end : %d\n" % (start, end))
 
 print(result_1, result_2, result_3)
-

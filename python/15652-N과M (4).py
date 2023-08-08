@@ -13,15 +13,18 @@
 
 n, m = map(int, input().split())
 result = []
+
+
 def dfs(idx, count):
-    #print('result:',result,'count:',count)
+    # print('result:',result,'count:',count)
     if count == m:
         print(*result)
         return
     for i in range(idx, n):
-        #print('result:',result,'count:',count,'i:',i)
-        result.append(i+1)
-        dfs(i, count+1)
+        # print('result:',result,'count:',count,'i:',i)
+        result.append(i + 1)
+        dfs(i, count + 1)
         result.pop()
+
 
 dfs(0, 0)

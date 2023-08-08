@@ -53,7 +53,10 @@ for i in range(n):
     for k in range(n):
         if i == k:
             continue
-        distance = ((stars[i][0] - stars[k][0]) ** Decimal("2") + (stars[i][1] - stars[k][1]) ** Decimal("2")) ** Decimal("0.5")
+        distance = (
+            (stars[i][0] - stars[k][0]) ** Decimal("2")
+            + (stars[i][1] - stars[k][1]) ** Decimal("2")
+        ) ** Decimal("0.5")
         graph[i].append((k, distance))
 
 mst = prim(graph, 0, n)

@@ -1,4 +1,5 @@
 import sys
+
 input = sys.stdin.readline
 
 sys.setrecursionlimit(int(10e3))
@@ -10,6 +11,7 @@ while True:
         tree.append(int(input()))
     except:
         break
+
 
 def rec(num, value):
     if num > value:
@@ -23,4 +25,5 @@ def rec(num, value):
     rec(temp, value)
     print(tree[num])
 
-rec(0,len(tree)-1)
+
+rec(0, len(tree) - 1)

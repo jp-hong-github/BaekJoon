@@ -18,7 +18,13 @@ for _ in range(m):
 
 
 # in degree==0인(가장 앞에 올 수 있는) 원소로 큐를 생성
-q = deque([singer for singer, singer_in_degree in enumerate(in_degree) if singer_in_degree == 0])
+q = deque(
+    [
+        singer
+        for singer, singer_in_degree in enumerate(in_degree)
+        if singer_in_degree == 0
+    ]
+)
 
 
 sorted_singers = []

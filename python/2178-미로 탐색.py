@@ -27,4 +27,4 @@ while q:
                     q.append((nRow, nCol))
                     move_count[nRow][nCol] = current_move_count + 1
 
-print(move_count[N-1][M-1])
+print(move_count[N - 1][M - 1])

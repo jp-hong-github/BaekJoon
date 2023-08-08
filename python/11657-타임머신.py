@@ -15,7 +15,10 @@ def bellman_ford(start):
         for j in range(edge_count):
             cur_node, next_node, weight = edges[j]
             # 현재 간선을 거쳐서 다른 노드로 이동하는 거리가 더 짧은 경우
-            if distance[cur_node] != INF and distance[next_node] > distance[cur_node] + weight:
+            if (
+                distance[cur_node] != INF
+                and distance[next_node] > distance[cur_node] + weight
+            ):
                 distance[next_node] = distance[cur_node] + weight
                 # vertex_count번째 반복에서도 값이 갱신되나면 음수 순환이 존재
                 if i == vertex_count - 1:

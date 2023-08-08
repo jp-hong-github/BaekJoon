@@ -29,15 +29,21 @@ else:
             # 기존의 1번 강의실이 연결된 그룹에서의 최소 돌의 개수와 n번째와 연결되 강의실들끼리의 최소 돌의 개수를 비교
             if construction_paths[1] == n:
                 num_of_stones_required_each_connected_building[0] = min(
-                    num_of_stones_required_each_connected_building[0], num_of_stones_required_each_building[construction_paths[1]]
+                    num_of_stones_required_each_connected_building[0],
+                    num_of_stones_required_each_building[construction_paths[1]],
                 )
             else:
                 num_of_stones_required_each_connected_building[0] = min(
-                    num_of_stones_required_each_connected_building[0], min(num_of_stones_required_each_building[construction_paths[1] :])
+                    num_of_stones_required_each_connected_building[0],
+                    min(num_of_stones_required_each_building[construction_paths[1] :]),
                 )
 
         num_of_stones_required_each_connected_building.append(
-            min(num_of_stones_required_each_building[first_building_in_construction_road : construction_paths[0] + 1])
+            min(
+                num_of_stones_required_each_building[
+                    first_building_in_construction_road : construction_paths[0] + 1
+                ]
+            )
         )
 
         first_building_in_construction_road = construction_paths[1]

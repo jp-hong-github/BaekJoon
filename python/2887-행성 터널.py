@@ -19,9 +19,27 @@ planets_z.sort()
 
 edges = []
 for i in range(n - 1):
-    edges.append((abs(planets_x[i][0] - planets_x[i + 1][0]), planets_x[i][1], planets_x[i + 1][1]))
-    edges.append((abs(planets_y[i][0] - planets_y[i + 1][0]), planets_y[i][1], planets_y[i + 1][1]))
-    edges.append((abs(planets_z[i][0] - planets_z[i + 1][0]), planets_z[i][1], planets_z[i + 1][1]))
+    edges.append(
+        (
+            abs(planets_x[i][0] - planets_x[i + 1][0]),
+            planets_x[i][1],
+            planets_x[i + 1][1],
+        )
+    )
+    edges.append(
+        (
+            abs(planets_y[i][0] - planets_y[i + 1][0]),
+            planets_y[i][1],
+            planets_y[i + 1][1],
+        )
+    )
+    edges.append(
+        (
+            abs(planets_z[i][0] - planets_z[i + 1][0]),
+            planets_z[i][1],
+            planets_z[i + 1][1],
+        )
+    )
 
 parents = [i for i in range(n)]
 

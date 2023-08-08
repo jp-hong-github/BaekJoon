@@ -28,7 +28,9 @@ def dijkstra(graph, start):
             if not (0 <= next_row < n and 0 <= next_col < m):
                 continue
 
-            next__count_wall_break = current_count_wall_break + graph[next_row][next_col]
+            next__count_wall_break = (
+                current_count_wall_break + graph[next_row][next_col]
+            )
             if next__count_wall_break < count_wall_break[next_row][next_col]:
                 count_wall_break[next_row][next_col] = next__count_wall_break
                 heapq.heappush(heap, (next__count_wall_break, next_row, next_col))

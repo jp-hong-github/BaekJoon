@@ -9,7 +9,6 @@ line = [list(map(int, input().split())) for _ in range(M)]
 result = []
 
 for line_start, line_end in line:
-
     smallest_num_include = -1
     biggest_num_include = -1
 

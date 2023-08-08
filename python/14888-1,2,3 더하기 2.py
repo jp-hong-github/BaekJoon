@@ -30,4 +30,3 @@ else:
             print("%d+" % (result[k - 1][num]), end="")
         else:
             print("%d" % (result[k - 1][num]))
-

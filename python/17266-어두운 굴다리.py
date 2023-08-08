@@ -19,4 +19,3 @@ for i in range(M - 1):
 
 result = max(x_list[0], mid, N - x_list[-1])  # 맨 처음 사이, 중간 사이 중 가장 큰 값, 맨 마지막 사이
 print(result)
-

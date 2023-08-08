@@ -46,7 +46,9 @@ while heap:
 min_dist_result = float("inf")
 answer_house = 0
 for candidate in candidate_house_list:
-    if min_dist_result > dist_list[candidate] or (min_dist_result == dist_list[candidate] and answer_house > candidate):
+    if min_dist_result > dist_list[candidate] or (
+        min_dist_result == dist_list[candidate] and answer_house > candidate
+    ):
         min_dist_result = dist_list[candidate]
         answer_house = candidate
 

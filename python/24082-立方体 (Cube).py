@@ -1,5 +1,6 @@
 import sys
-input=sys.stdin.readline
+
+input = sys.stdin.readline
 
 x = int(input())
 print(x**3)

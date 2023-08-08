@@ -72,4 +72,3 @@ for row in range(1, N):
 
 print(sum(dp[N - 1][N - 1]))
 # print(dp)
-

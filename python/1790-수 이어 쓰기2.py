@@ -26,4 +26,3 @@ if ans > n:
     print(-1)
 else:
     print(str(ans)[(k - 1) % digit])
-

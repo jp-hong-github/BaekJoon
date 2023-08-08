@@ -13,4 +13,3 @@ for _ in range(n):
         print(2)
     else:
         print(0)
-

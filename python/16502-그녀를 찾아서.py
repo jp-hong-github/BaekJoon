@@ -22,4 +22,3 @@ for i in range(time):
 
 for node in graph_prob:
     print(graph_prob[node] * 100)
-

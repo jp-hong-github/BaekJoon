@@ -26,4 +26,3 @@ while start <= end:
         break
     else:
         end = mid - 1
-

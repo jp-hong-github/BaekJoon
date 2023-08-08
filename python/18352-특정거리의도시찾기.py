@@ -36,4 +36,3 @@ for u in range(1, n + 1):
 if t == 0:
     print(-1)
 # print(result)
-

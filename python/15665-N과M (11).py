@@ -31,4 +31,3 @@ def dfs(idx, count):
 
 
 dfs(-1, 0)
-

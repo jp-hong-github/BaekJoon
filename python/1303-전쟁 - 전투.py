@@ -32,7 +32,7 @@ def bfs(row, col, color):
                         q.append([r + dr[i], c + dc[i]])
                         graph[r + dr[i]][c + dc[i]] = "V"
         # print(printList, total ** 2)
-        answer[color] += total ** 2
+        answer[color] += total**2
     pass
 
 
@@ -42,4 +42,3 @@ for row in range(M):
 
 
 print(answer["W"], answer["B"])
-

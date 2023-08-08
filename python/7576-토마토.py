@@ -31,7 +31,10 @@ while q:
         nCol = cCol + dCol
 
         if 0 <= nRow < n and 0 <= nCol < m:
-            if graph[nRow][nCol] != -1 and (visited[nRow][nCol] > visited[cRow][cCol] + 1 or visited[nRow][nCol] == -1):
+            if graph[nRow][nCol] != -1 and (
+                visited[nRow][nCol] > visited[cRow][cCol] + 1
+                or visited[nRow][nCol] == -1
+            ):
                 visited[nRow][nCol] = visited[cRow][cCol] + 1
                 q.append((nRow, nCol))
 

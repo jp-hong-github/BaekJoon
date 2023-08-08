@@ -5,7 +5,34 @@ input = sys.stdin.readline
 A = list(input().rstrip())
 B = list(input().rstrip())
 
-alphabet_number = [3, 2, 1, 2, 3, 3, 2, 3, 3, 2, 2, 1, 2, 2, 1, 2, 2, 2, 1, 2, 1, 1, 1, 2, 2, 1]
+alphabet_number = [
+    3,
+    2,
+    1,
+    2,
+    3,
+    3,
+    2,
+    3,
+    3,
+    2,
+    2,
+    1,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2,
+    1,
+    2,
+    1,
+    1,
+    1,
+    2,
+    2,
+    1,
+]
 
 A_number = [alphabet_number[ord(i) - 65] for i in A]
 B_number = [alphabet_number[ord(i) - 65] for i in B]

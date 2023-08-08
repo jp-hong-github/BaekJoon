@@ -13,7 +13,9 @@ for _ in range(t):
 
     approximate_cube_root = num ** (Decimal("1") / Decimal("3"))
 
-    approximate_cube_root = Decimal(approximate_cube_root).quantize(Decimal(digit_num), rounding=ROUND_HALF_UP)
+    approximate_cube_root = Decimal(approximate_cube_root).quantize(
+        Decimal(digit_num), rounding=ROUND_HALF_UP
+    )
     result_list.append(approximate_cube_root)
 
 for r in result_list:

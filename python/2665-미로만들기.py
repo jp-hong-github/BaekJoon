@@ -21,8 +21,12 @@ def dijkstra(graph, row, col):
             if not (0 <= nRow < n and 0 <= nCol < n):
                 continue
 
-            if count_change_room[nRow][nCol] > current_count_change_room + (1 - graph[nRow][nCol]):
-                count_change_room[nRow][nCol] = current_count_change_room + (1 - graph[nRow][nCol])
+            if count_change_room[nRow][nCol] > current_count_change_room + (
+                1 - graph[nRow][nCol]
+            ):
+                count_change_room[nRow][nCol] = current_count_change_room + (
+                    1 - graph[nRow][nCol]
+                )
                 heapq.heappush(heap, (count_change_room[nRow][nCol], nRow, nCol))
 
     return count_change_room

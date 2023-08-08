@@ -1,6 +1,7 @@
 import sys
-input=sys.stdin.readline
- 
+
+input = sys.stdin.readline
+
 n = int(input())
 
-print(n-1946)
+print(n - 1946)

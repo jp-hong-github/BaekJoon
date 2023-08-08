@@ -8,7 +8,7 @@ data = []
 
 for _ in range(n):
     w, v = map(int, input().split())
-    data.append([w, v]) # [무게, 가치]
+    data.append([w, v])  # [무게, 가치]
 
 data.sort(key=lambda x: [x[0], -x[1]])
 

@@ -14,12 +14,11 @@ INF = 10001
 
 
 def bellman_ford(start, distance, vertex_count, edges):
-
     distance[start] = 0
     for i in range(vertex_count):
         for j in range(len(edges)):
             cur_node, next_node, cost = edges[j]
-            if  distance[next_node] > distance[cur_node] + cost:
+            if distance[next_node] > distance[cur_node] + cost:
                 distance[next_node] = distance[cur_node] + cost
                 if i == vertex_count - 1:
                     # // # dfs를 통해 음수 간선 순환에 시작점이 있는지 확인해주어야 함
@@ -50,4 +49,3 @@ for _ in range(t):
         print("YES")
     else:
         print("NO")
-

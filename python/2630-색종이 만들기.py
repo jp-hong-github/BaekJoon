@@ -25,9 +25,9 @@ def cut(x, y, N):
                 cut(x + N // 2, y + N // 2, N // 2)
                 return
     if color == 0:
-        result_0+=1
+        result_0 += 1
     else:
-        result_1+=1
+        result_1 += 1
 
 
 cut(0, 0, N)

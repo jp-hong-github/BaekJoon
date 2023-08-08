@@ -63,7 +63,9 @@ result = max(result, second_diameter_of_tree)
 
 # a,b를 제거한 트리의 지름을 구함
 node, _ = BFS_looking_for_the_furthest_node(tree, 1, [node_a, node_b])
-_, second_diameter_of_tree = BFS_looking_for_the_furthest_node(tree, node, [node_a, node_b])
+_, second_diameter_of_tree = BFS_looking_for_the_furthest_node(
+    tree, node, [node_a, node_b]
+)
 result = max(result, second_diameter_of_tree)
 
 print(result)

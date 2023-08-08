@@ -36,4 +36,3 @@ while q:
             q.append([next, dist + 1])
 
 print("%d %d %d" % (result["num"], result["dist"], result["same"]))
-

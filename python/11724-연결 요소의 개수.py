@@ -12,6 +12,7 @@ for _ in range(m):
 
 visited = [0 for _ in range(n + 1)]
 
+
 # dfs 코드
 def dfs(graph, visited, v):
     visited[v] = True

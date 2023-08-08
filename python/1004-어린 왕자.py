@@ -7,18 +7,17 @@ T = int(input())
 
 def check_planet(x, y, c_x, c_y, r):
     dist = (x - c_x) ** 2 + (y - c_y) ** 2
-    r_2 = r ** 2
+    r_2 = r**2
     if dist < r_2:
         return True
     else:
         return False
 
 
-
-result_lst=[]
+result_lst = []
 for _ in range(T):
     result = 0
-    
+
     start_x, start_y, dest_x, dest_y = map(int, input().split())
     n = int(input())
     for __ in range(n):
@@ -31,6 +30,6 @@ for _ in range(T):
         if not start_check and end_check:
             result += 1
     result_lst.append(result)
-    
+
 for result in result_lst:
     print(result)

@@ -27,4 +27,3 @@ for _ in range(T):
 
 for result in result_lst:
     print("".join(str(s) for s in result))
-

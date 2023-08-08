@@ -11,4 +11,3 @@ A = list(map(int, input().split()))
 B = list(map(int, input().split()))
 
 print("%d %d" % (cal(A), cal(B)))
-

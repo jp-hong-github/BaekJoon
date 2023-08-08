@@ -53,7 +53,9 @@ while 1:
             visited[nl][nr][nc] = visited[cl][cr][cc] + 1
 
     if visited[end_point[0]][end_point[1]][end_point[2]] != float("inf"):
-        result.append(f"Escaped in {visited[end_point[0]][end_point[1]][end_point[2]]} minute(s).")
+        result.append(
+            f"Escaped in {visited[end_point[0]][end_point[1]][end_point[2]]} minute(s)."
+        )
     else:
         result.append("Trapped!")
 

@@ -10,7 +10,7 @@ def backtracking(idx, count, numList, testCase, k):
         for i in range(idx + 1, k):
             if testCase[i] not in numList:
                 numList.append(testCase[i])
-                backtracking(i, count + 1, numList, testCase,k)
+                backtracking(i, count + 1, numList, testCase, k)
                 numList.pop()
 
 
@@ -22,4 +22,3 @@ while True:
     del testCase[0]
     backtracking(-1, 0, [], testCase, k)
     print()
-
