@@ -20,6 +20,7 @@ for i in range(N):
     print(cur, end=" ")
 
     move = arr[cur]
+    # 인덱스가 0으로 오는 것은 회전 방향에 따라 1의 차이가 남
     if move > 0:
         q.rotate(-move + 1)
     else:

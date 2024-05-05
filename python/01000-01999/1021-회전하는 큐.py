@@ -20,6 +20,7 @@ while numbers:
         numbers.popleft()
 
     # 두 번째 연산을 수행
+    # ! <=인 이유는 오른쪽으로 이동은 +1을 더 해주어야 0번째 인덱스로 오기 때문
     elif q.index(numbers[0]) <= len(q) // 2:
         q.rotate(-1)
         second_operation_count += 1
