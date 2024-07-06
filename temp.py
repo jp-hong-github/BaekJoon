@@ -1,15 +1,15 @@
-def bubble_sort(arr):
-    n = len(arr)
-    print("Original array:", arr)
-    for i in range(n):
-        print(f"Step {i+1}: ", end="")
-        for j in range(0, n - i - 1):
-            if arr[j] > arr[j + 1]:
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
-        print(arr)
-    return arr
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    print("기존 데이터   :", arr)
+    print("-" * 45)
+    print(f"정렬 과정    : {left} + {middle} + {right}")
+    return quick_sort(left) + middle + quick_sort(right)
 
 
-# 예제
 data = [64, 34, 25, 12, 22, 11, 90]
-bubble_sort(data)
+print("정렬된 데이터 :", quick_sort(data))
